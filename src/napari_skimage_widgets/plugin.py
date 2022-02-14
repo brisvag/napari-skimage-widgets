@@ -1,12 +1,22 @@
 from magicgui import magic_factory
-from napari_plugin_engine import napari_hook_implementation
+
+from .annotate import annotate_module
 
 
-@napari_hook_implementation
-def napari_experimental_provide_dock_widget():
-    from .annotate import annotate_module
-
+def _generate_widgets():
     opts = dict(auto_call=True)
-    return [
-        magic_factory(x, **opts) for x in annotate_module("skimage.filters").values()
-    ]
+    return {
+        name: magic_factory(func, **opts)
+        for name, func in annotate_module("skimage.filters").items()
+    }
+
+
+_widgets = _generate_widgets()
+
+__all__ = list(_widgets)
+
+
+def __getattr__(name):
+    if name in __all__:
+        return _widgets[name]
+    raise AttributeError(name)
