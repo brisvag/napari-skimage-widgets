@@ -1,0 +1,230 @@
+name: napari-skimage-widgets
+display_name: skimage widgets
+contributions:
+  commands:
+    - id: napari-skimage-widgets.apply_hysteresis_threshold
+      python_name: napari_skimage_widgets.plugin:apply_hysteresis_threshold
+      title: Create skimage.apply_hysteresis_threshold widget
+    - id: napari-skimage-widgets.butterworth
+      python_name: napari_skimage_widgets.plugin:butterworth
+      title: Create skimage.butterworth widget
+    - id: napari-skimage-widgets.correlate_sparse
+      python_name: napari_skimage_widgets.plugin:correlate_sparse
+      title: Create skimage.correlate_sparse widget
+    - id: napari-skimage-widgets.difference_of_gaussians
+      python_name: napari_skimage_widgets.plugin:difference_of_gaussians
+      title: Create skimage.difference_of_gaussians widget
+    - id: napari-skimage-widgets.farid
+      python_name: napari_skimage_widgets.plugin:farid
+      title: Create skimage.farid widget
+    - id: napari-skimage-widgets.farid_h
+      python_name: napari_skimage_widgets.plugin:farid_h
+      title: Create skimage.farid_h widget
+    - id: napari-skimage-widgets.farid_v
+      python_name: napari_skimage_widgets.plugin:farid_v
+      title: Create skimage.farid_v widget
+    - id: napari-skimage-widgets.frangi
+      python_name: napari_skimage_widgets.plugin:frangi
+      title: Create skimage.frangi widget
+    - id: napari-skimage-widgets.gabor
+      python_name: napari_skimage_widgets.plugin:gabor
+      title: Create skimage.gabor widget
+    - id: napari-skimage-widgets.gabor_kernel
+      python_name: napari_skimage_widgets.plugin:gabor_kernel
+      title: Create skimage.gabor_kernel widget
+    - id: napari-skimage-widgets.gaussian
+      python_name: napari_skimage_widgets.plugin:gaussian
+      title: Create skimage.gaussian widget
+    - id: napari-skimage-widgets.hessian
+      python_name: napari_skimage_widgets.plugin:hessian
+      title: Create skimage.hessian widget
+    - id: napari-skimage-widgets.inverse
+      python_name: napari_skimage_widgets.plugin:inverse
+      title: Create skimage.inverse widget
+    - id: napari-skimage-widgets.laplace
+      python_name: napari_skimage_widgets.plugin:laplace
+      title: Create skimage.laplace widget
+    - id: napari-skimage-widgets.median
+      python_name: napari_skimage_widgets.plugin:median
+      title: Create skimage.median widget
+    - id: napari-skimage-widgets.meijering
+      python_name: napari_skimage_widgets.plugin:meijering
+      title: Create skimage.meijering widget
+    - id: napari-skimage-widgets.prewitt
+      python_name: napari_skimage_widgets.plugin:prewitt
+      title: Create skimage.prewitt widget
+    - id: napari-skimage-widgets.prewitt_h
+      python_name: napari_skimage_widgets.plugin:prewitt_h
+      title: Create skimage.prewitt_h widget
+    - id: napari-skimage-widgets.prewitt_v
+      python_name: napari_skimage_widgets.plugin:prewitt_v
+      title: Create skimage.prewitt_v widget
+    - id: napari-skimage-widgets.rank_order
+      python_name: napari_skimage_widgets.plugin:rank_order
+      title: Create skimage.rank_order widget
+    - id: napari-skimage-widgets.roberts
+      python_name: napari_skimage_widgets.plugin:roberts
+      title: Create skimage.roberts widget
+    - id: napari-skimage-widgets.roberts_neg_diag
+      python_name: napari_skimage_widgets.plugin:roberts_neg_diag
+      title: Create skimage.roberts_neg_diag widget
+    - id: napari-skimage-widgets.roberts_pos_diag
+      python_name: napari_skimage_widgets.plugin:roberts_pos_diag
+      title: Create skimage.roberts_pos_diag widget
+    - id: napari-skimage-widgets.sato
+      python_name: napari_skimage_widgets.plugin:sato
+      title: Create skimage.sato widget
+    - id: napari-skimage-widgets.scharr
+      python_name: napari_skimage_widgets.plugin:scharr
+      title: Create skimage.scharr widget
+    - id: napari-skimage-widgets.scharr_h
+      python_name: napari_skimage_widgets.plugin:scharr_h
+      title: Create skimage.scharr_h widget
+    - id: napari-skimage-widgets.scharr_v
+      python_name: napari_skimage_widgets.plugin:scharr_v
+      title: Create skimage.scharr_v widget
+    - id: napari-skimage-widgets.sobel
+      python_name: napari_skimage_widgets.plugin:sobel
+      title: Create skimage.sobel widget
+    - id: napari-skimage-widgets.sobel_h
+      python_name: napari_skimage_widgets.plugin:sobel_h
+      title: Create skimage.sobel_h widget
+    - id: napari-skimage-widgets.sobel_v
+      python_name: napari_skimage_widgets.plugin:sobel_v
+      title: Create skimage.sobel_v widget
+    - id: napari-skimage-widgets.threshold_isodata
+      python_name: napari_skimage_widgets.plugin:threshold_isodata
+      title: Create skimage.threshold_isodata widget
+    - id: napari-skimage-widgets.threshold_li
+      python_name: napari_skimage_widgets.plugin:threshold_li
+      title: Create skimage.threshold_li widget
+    - id: napari-skimage-widgets.threshold_local
+      python_name: napari_skimage_widgets.plugin:threshold_local
+      title: Create skimage.threshold_local widget
+    - id: napari-skimage-widgets.threshold_mean
+      python_name: napari_skimage_widgets.plugin:threshold_mean
+      title: Create skimage.threshold_mean widget
+    - id: napari-skimage-widgets.threshold_minimum
+      python_name: napari_skimage_widgets.plugin:threshold_minimum
+      title: Create skimage.threshold_minimum widget
+    - id: napari-skimage-widgets.threshold_multiotsu
+      python_name: napari_skimage_widgets.plugin:threshold_multiotsu
+      title: Create skimage.threshold_multiotsu widget
+    - id: napari-skimage-widgets.threshold_niblack
+      python_name: napari_skimage_widgets.plugin:threshold_niblack
+      title: Create skimage.threshold_niblack widget
+    - id: napari-skimage-widgets.threshold_otsu
+      python_name: napari_skimage_widgets.plugin:threshold_otsu
+      title: Create skimage.threshold_otsu widget
+    - id: napari-skimage-widgets.threshold_sauvola
+      python_name: napari_skimage_widgets.plugin:threshold_sauvola
+      title: Create skimage.threshold_sauvola widget
+    - id: napari-skimage-widgets.threshold_triangle
+      python_name: napari_skimage_widgets.plugin:threshold_triangle
+      title: Create skimage.threshold_triangle widget
+    - id: napari-skimage-widgets.threshold_yen
+      python_name: napari_skimage_widgets.plugin:threshold_yen
+      title: Create skimage.threshold_yen widget
+    - id: napari-skimage-widgets.try_all_threshold
+      python_name: napari_skimage_widgets.plugin:try_all_threshold
+      title: Create skimage.try_all_threshold widget
+    - id: napari-skimage-widgets.unsharp_mask
+      python_name: napari_skimage_widgets.plugin:unsharp_mask
+      title: Create skimage.unsharp_mask widget
+    - id: napari-skimage-widgets.wiener
+      python_name: napari_skimage_widgets.plugin:wiener
+      title: Create skimage.wiener widget
+    - id: napari-skimage-widgets.window
+      python_name: napari_skimage_widgets.plugin:window
+      title: Create skimage.window widget
+  widgets:
+    - command: napari-skimage-widgets.apply_hysteresis_threshold
+      display_name: apply_hysteresis_threshold filter
+    - command: napari-skimage-widgets.butterworth
+      display_name: butterworth filter
+    - command: napari-skimage-widgets.correlate_sparse
+      display_name: correlate_sparse filter
+    - command: napari-skimage-widgets.difference_of_gaussians
+      display_name: difference_of_gaussians filter
+    - command: napari-skimage-widgets.farid
+      display_name: farid filter
+    - command: napari-skimage-widgets.farid_h
+      display_name: farid_h filter
+    - command: napari-skimage-widgets.farid_v
+      display_name: farid_v filter
+    - command: napari-skimage-widgets.frangi
+      display_name: frangi filter
+    - command: napari-skimage-widgets.gabor
+      display_name: gabor filter
+    - command: napari-skimage-widgets.gabor_kernel
+      display_name: gabor_kernel filter
+    - command: napari-skimage-widgets.gaussian
+      display_name: gaussian filter
+    - command: napari-skimage-widgets.hessian
+      display_name: hessian filter
+    - command: napari-skimage-widgets.inverse
+      display_name: inverse filter
+    - command: napari-skimage-widgets.laplace
+      display_name: laplace filter
+    - command: napari-skimage-widgets.median
+      display_name: median filter
+    - command: napari-skimage-widgets.meijering
+      display_name: meijering filter
+    - command: napari-skimage-widgets.prewitt
+      display_name: prewitt filter
+    - command: napari-skimage-widgets.prewitt_h
+      display_name: prewitt_h filter
+    - command: napari-skimage-widgets.prewitt_v
+      display_name: prewitt_v filter
+    - command: napari-skimage-widgets.rank_order
+      display_name: rank_order filter
+    - command: napari-skimage-widgets.roberts
+      display_name: roberts filter
+    - command: napari-skimage-widgets.roberts_neg_diag
+      display_name: roberts_neg_diag filter
+    - command: napari-skimage-widgets.roberts_pos_diag
+      display_name: roberts_pos_diag filter
+    - command: napari-skimage-widgets.sato
+      display_name: sato filter
+    - command: napari-skimage-widgets.scharr
+      display_name: scharr filter
+    - command: napari-skimage-widgets.scharr_h
+      display_name: scharr_h filter
+    - command: napari-skimage-widgets.scharr_v
+      display_name: scharr_v filter
+    - command: napari-skimage-widgets.sobel
+      display_name: sobel filter
+    - command: napari-skimage-widgets.sobel_h
+      display_name: sobel_h filter
+    - command: napari-skimage-widgets.sobel_v
+      display_name: sobel_v filter
+    - command: napari-skimage-widgets.threshold_isodata
+      display_name: threshold_isodata filter
+    - command: napari-skimage-widgets.threshold_li
+      display_name: threshold_li filter
+    - command: napari-skimage-widgets.threshold_local
+      display_name: threshold_local filter
+    - command: napari-skimage-widgets.threshold_mean
+      display_name: threshold_mean filter
+    - command: napari-skimage-widgets.threshold_minimum
+      display_name: threshold_minimum filter
+    - command: napari-skimage-widgets.threshold_multiotsu
+      display_name: threshold_multiotsu filter
+    - command: napari-skimage-widgets.threshold_niblack
+      display_name: threshold_niblack filter
+    - command: napari-skimage-widgets.threshold_otsu
+      display_name: threshold_otsu filter
+    - command: napari-skimage-widgets.threshold_sauvola
+      display_name: threshold_sauvola filter
+    - command: napari-skimage-widgets.threshold_triangle
+      display_name: threshold_triangle filter
+    - command: napari-skimage-widgets.threshold_yen
+      display_name: threshold_yen filter
+    - command: napari-skimage-widgets.try_all_threshold
+      display_name: try_all_threshold filter
+    - command: napari-skimage-widgets.unsharp_mask
+      display_name: unsharp_mask filter
+    - command: napari-skimage-widgets.wiener
+      display_name: wiener filter
+    - command: napari-skimage-widgets.window
+      display_name: window filter
