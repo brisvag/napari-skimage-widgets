@@ -2,10 +2,21 @@ import builtins
 import inspect
 import re
 from ast import literal_eval
+from enum import Enum
+from functools import wraps
 from types import FunctionType
 
 from docstring_parser import parse
 from typing_extensions import Annotated
+
+
+class BoundaryMode(Enum):
+    reflect = "reflect"
+    constant = "constant"
+    nearest = "nearest"
+    mirror = "mirror"
+    warp = "warp"
+
 
 HIDDEN = {"skimage.filters._median.median": {"behavior"}}
 
@@ -20,6 +31,10 @@ DOC_TYPE_MAP = {
     "array": "napari.types.ImageData",
     "ndarray": "napari.types.ImageData",
 }
+
+REQUIRED_NO_DEFAULTS = ("image", "kernel", "data")
+
+DEPRECATED = ("multichannel",)  # conflicts with new channel_axis
 
 
 def gather_functions(module):
@@ -54,6 +69,9 @@ def guess_type(param: inspect.Parameter, doc_type):
 
     if param.name in BIND_DEFAULT:
         return bound_default(param)
+
+    if param.name == "mode":
+        return BoundaryMode
 
     if param.name in NAME_MAP:
         return NAME_MAP[param.name]
@@ -122,18 +140,56 @@ def annotate_function(function):
             del doc_params[k]
 
     hidden = HIDDEN.get(f"{function.__module__}.{function.__name__}", {})
+    params = []
     for p in sig.parameters.values():
-        if p.name in hidden:
+        if p.name in DEPRECATED:
+            continue
+        elif p.name in hidden:
             annotation = bound_default(p)
         else:
             annotation = guess_type(p, doc_params.get(p.name))
-        function.__annotations__[p.name] = annotation
+
+        # original functions accept strings, not enums
+        if isinstance(annotation, type) and issubclass(annotation, Enum):
+            default = annotation(p.default)
+        else:
+            default = p.default
+
+        if p.name == "channel_axis":
+            # TODO: this needs to be nullable for non-channel images!
+            pass
+
+        param = inspect.Parameter(
+            name=p.name,
+            annotation=annotation,
+            default=default,
+            kind=inspect.Parameter.KEYWORD_ONLY,
+        )
+
+        params.append(param)
 
     doc_returns = parse(function.__doc__).returns
     # Note skimage.filters.inverse has no return doc string
     # Note skimage.filters.threshold should be a different type ....
     if doc_returns is not None:
-        function.__annotations__["return"] = guess_return_type(doc_returns)
+        return_annotation = guess_return_type(doc_returns)
+    else:
+        return_annotation = None
+
+    new_sig = sig.replace(parameters=params, return_annotation=return_annotation)
+
+    @wraps(function)
+    def wrapper(**kwargs):
+        for kw, val in kwargs.items():
+            if kw in REQUIRED_NO_DEFAULTS and val is None:
+                return
+            elif isinstance(val, Enum):
+                kwargs[kw] = val.value
+        return function(**kwargs)
+
+    wrapper.__signature__ = new_sig
+
+    return wrapper
 
 
 def annotate_module(module):
@@ -143,6 +199,4 @@ def annotate_module(module):
         module = importlib.import_module(module)
 
     functions = gather_functions(module)
-    for func in functions.values():
-        annotate_function(func)
-    return functions
+    return {fname: annotate_function(func) for fname, func in functions.items()}
